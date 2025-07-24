@@ -1,0 +1,48 @@
+/* src/pages/LegalDictionary.css */
+.dictionary-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dictionary-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .dictionary-list {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  
+  .term-box {
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #eef3f7;
+    border-left: 4px solid #2980b9;
+    border-radius: 8px;
+  }
+  
+  .term-box h3 {
+    margin: 0 0 5px;
+    color: #2c3e50;
+  }
+  
+  .term-box p {
+    margin: 0;
+    color: #555;
+  }
+  

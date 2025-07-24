@@ -1,0 +1,83 @@
+/* Container setup */
+.homepage-container {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Top banner section */
+.top-section {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.main-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #e0e0e0;
+}
+
+/* Features section */
+.features-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  gap: 20px;
+}
+
+.feature-box {
+  flex: 1;
+  background-color: white;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 250px;
+}
+
+.feature-icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.feature-title {
+  color: green;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.feature-description {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Responsive behavior for small screens */
+@media (max-width: 1000px) {
+  .features-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .feature-box {
+    max-width: 100%;
+    width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .feature-box {
+    width: 100%;
+  }
+}

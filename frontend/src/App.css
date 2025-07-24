@@ -1,0 +1,40 @@
+/* Global layout fixes */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Background image setup */
+body {
+  
+background-image: url('/'); /* Make sure the path is correct */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+ 
+/* Set up background image */
+.app-container {
+ /* Or use external link */
+  background-repeat: no-repeat;
+  background-size: auto 100vh;  /* Full height, auto width */
+  background-position: center top; /* Horizontally centered */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Footer stays at the bottom */
+.content {
+  flex: 1;
+  padding: 2rem;
+}
+
+footer {
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}

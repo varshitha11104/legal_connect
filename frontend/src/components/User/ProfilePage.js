@@ -1,0 +1,165 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+const UserProfile = () => {
+  const [formData, setFormData] = useState({
+    username: "",
+    fullName: "",
+    email: "",
+    role: "",
+    createdAt: "",
+  });
+
+  const [isEditing, setIsEditing] = useState(false);
+  const [isEditable, setIsEditable] = useState(false);
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/private-api/profile", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const profile = res.data;
+        setIsEditing(true);
+        setFormData({
+          username: profile.username || "",
+          fullName: profile.fullName || "",
+          email: profile.email || "",
+          role: profile.role || "",
+          createdAt: new Date(profile.createdAt).toLocaleDateString() || "",
+        });
+      } catch (err) {
+        console.error("Error fetching profile:", err);
+      }
+    };
+    fetchProfile();
+  }, []);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.put("http://localhost:5000/private-api/update-profile", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      alert("Profile updated successfully!");
+      setIsEditable(false);
+    } catch (err) {
+      console.error("Error updating profile:", err.response?.data || err);
+    }
+  };
+
+  return (
+    <div>
+      <h2 style={{ textAlign: "center", marginBottom: "2rem" }}>
+        {isEditing ? "Your Profile" : "Your Profile"}
+      </h2>
+      <form
+        onSubmit={handleSubmit}
+        style={{ maxWidth: "600px", margin: "auto" }}
+      >
+        {[
+          { label: "Username", name: "username" },
+          { label: "Full Name", name: "fullName" },
+          { label: "Email", name: "email" },
+          // { label: "Role", name: "role" },
+          // { label: "Member Since", name: "createdAt" },
+        ].map(({ label, name }) => (
+          <div
+            key={name}
+            style={{
+              display: "flex",
+              marginBottom: "12px",
+              alignItems: "center",
+            }}
+          >
+            <label style={{ width: "200px", fontWeight: "bold" }}>
+              {label}:
+            </label>
+            <input
+              type={name === "email" ? "email" : "text"}
+              name={name}
+              value={formData[name]}
+              onChange={handleChange}
+              required
+              readOnly={!isEditable}
+              style={{ flex: 1, padding: "6px" }}
+              
+            />
+          </div>
+        ))}
+
+
+         {[
+          { label: "Role", name: "role" },
+          { label: "Member Since", name: "createdAt" },
+        ].map(({ label, name }) => (
+          <div
+            key={name}
+            style={{
+              display: "flex",
+              marginBottom: "12px",
+              alignItems: "center",
+            }}
+          >
+            <label style={{ width: "200px", fontWeight: "bold" }}>
+              {label}:
+            </label>
+            <input
+              type={name === "email" ? "email" : "text"}
+              name={name}
+              value={formData[name]}
+              onChange={handleChange}
+              required
+              readOnly
+              style={{ flex: 1, padding: "6px" }}
+              
+            />
+          </div>
+        ))}
+
+        {isEditable && (
+          <button
+            type="submit"
+            style={{
+              backgroundColor: "red",
+              color: "white",
+              padding: "10px 20px",
+              border: "none",
+              borderRadius: "6px",
+              cursor: "pointer",
+              marginTop: "10px",
+            }}
+          >
+            Save Profile
+          </button>
+        )}
+
+        {isEditing && !isEditable && (
+          <button
+            onClick={() => setIsEditable(true)}
+            style={{
+              backgroundColor: "#007bff",
+              color: "white",
+              padding: "10px 20px",
+              border: "none",
+              borderRadius: "6px",
+              cursor: "pointer",
+              marginTop: "10px",
+            }}
+          >
+            Edit Profile
+          </button>
+        )}
+      </form>
+    </div>
+  );
+};
+
+export default UserProfile;

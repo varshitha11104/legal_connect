@@ -1,0 +1,20 @@
+.main-container {
+    padding: 30px;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #A6D6D6, #8E7DBE);
+    overflow-y: auto;
+  }
+  
+  .title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .lawyer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  
