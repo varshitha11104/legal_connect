@@ -34,7 +34,7 @@ const ConnectPage = () => {
 
     try {
       await axios.post(
-        `http://localhost:5000/api/lawyer/connect/${id}`,
+        `${process.env.REACT_APP_API_BASE_URL}/api/lawyer/connect/${id}`,
         formData,{
         headers: { Authorization: `Bearer ${token}` },
         }

@@ -22,7 +22,7 @@ const CompleteProfile = () => {
     const fetchLawyer = async () => {
       if (token) {
         try {
-          const res = await axios.get("http://localhost:5000/private-api/profile", {
+          const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/private-api/profile`, {
             headers: { Authorization: `Bearer ${token}` },
           });
 
@@ -75,7 +75,7 @@ const CompleteProfile = () => {
 
     try {
       await axios.put(
-        "http://localhost:5000/private-api/update-profile",
+        '${process.env.REACT_APP_API_BASE_URL}/private-api/update-profile',
         formDataToSubmit,
         {
           headers: {

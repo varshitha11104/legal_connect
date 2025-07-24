@@ -12,7 +12,7 @@ const MainPage = () => {
   useEffect(() => {
     const fetchLawyers = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/all-lawyers");
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/all-lawyers`);
         setLawyers(response.data); // Set the lawyers data in the state
         setLoading(false); // Stop loading
 

@@ -17,7 +17,7 @@ const UserProfile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/private-api/profile", {
+        const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/private-api/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const profile = res.data;
