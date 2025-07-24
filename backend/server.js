@@ -13,8 +13,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 const MONGO_URI =
-  process.env.MONGO_URI || "mongodb://127.0.0.1:27017/legal_users"; 
-
+  process.env.MONGO_URI;
 
 const PORT = process.env.PORT || 5000; 
 
@@ -24,6 +23,10 @@ app.use("/api/auth", authRoutes);
 app.use("/private-api", privateRoutes);
 app.use("/api", userRoutes);
 app.use("/api/lawyer",lawyerRoutes);
+
+app.get("/", (req, res) => {
+  res.send("🟢 LegalConnect API is running!");
+});
 
 // Connect to MongoDB
 mongoose
@@ -41,3 +44,5 @@ mongoose
     console.error("MongoDB connection error:", err);
     process.exit(1); 
   });
+
+
