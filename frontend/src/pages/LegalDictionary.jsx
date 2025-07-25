@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import legalTerms from '../data/legalTerms_large.json'; 
-import '../css/LegalDictionary.css'; // Optional: Add styling here
+import '../css/LegalDictionary.css'; 
 
 const LegalDictionary = () => {
   const [searchTerm, setSearchTerm] = useState('');

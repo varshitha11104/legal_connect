@@ -1,12 +1,10 @@
 
-//export default App;
-// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './pages/Navbar';
 import Footer from './pages/Footer';
-import Home from './pages/Home'; // Home page
-import Blogs from './components/Blogs'; // Blogs page
+import Home from './pages/Home'; 
+import Blogs from './components/Blogs'; 
 import Questionnaire from './components/publicQ&A/Questionnaire';
 import './App.css';
 import LegalDictionary from './pages/LegalDictionary';

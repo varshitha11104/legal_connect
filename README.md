@@ -4,7 +4,7 @@
 
 ## 🚀 Tech Stack
 
-- **Frontend**: React.js, Tailwind CSS
+- **Frontend**: React.js,css
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB (Mongoose)
 - **AI Integration**: Python + FastAPI
