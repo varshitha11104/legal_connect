@@ -1,3 +1,7 @@
+LIVE LINK -
+https://legal-connect-jade.vercel.app/
+
+
 # 🧾 LegalConnect – AI-Powered Legal Assistance Platform
 
 **LegalConnect** is an AI-driven web platform designed to simplify legal assistance by allowing users to upload and analyze legal documents, connect with lawyers, and access legal knowledge—all from a single place.
